@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import DashboardLayout from '../components/dashboard/DashboardLayout'
 import Overview from '../dashboard/pages/Overview'
 import Courses from '../dashboard/pages/Courses'
@@ -18,7 +18,7 @@ function Landing(){
     <div className="min-h-screen flex items-center justify-center">
       <div>
         <h1 className="text-3xl font-bold">Grahmind InternStudio</h1>
-        <p className="text-gray-600">Marketing landing placeholder. <a href="/dashboard" className="text-blue-600">Open dashboard</a></p>
+        <p className="text-gray-600">Marketing landing placeholder. <a href="#/dashboard" className="text-blue-600">Open dashboard</a></p>
       </div>
     </div>
   )
@@ -26,7 +26,7 @@ function Landing(){
 
 export default function AppRoutes(){
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Landing/>} />
         <Route path="/dashboard" element={<ProtectedRoute><DashboardLayout/></ProtectedRoute>}>
@@ -43,6 +43,7 @@ export default function AppRoutes(){
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
+

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import chatbotLogo from '../../assets/chatbot-logo.svg'
+import gmlogo from '../../assets/images/gmlogo-removebg-preview.png'
 import backend from '../../services/mockBackend'
 import { AuthContext } from '../../contexts/AuthContext'
 
@@ -9,7 +10,7 @@ export default function Chatbot(){
   const [messages, setMessages] = useState([])
   const [text, setText] = useState('')
   const [sending, setSending] = useState(false)
-  const [logoSrc, setLogoSrc] = useState(chatbotLogo)
+  const [logoSrc, setLogoSrc] = useState(gmlogo)
   const { user } = useContext(AuthContext)
   const listRef = useRef(null)
 
@@ -22,17 +23,7 @@ export default function Chatbot(){
     }
   }, [])
 
-  useEffect(() => {
-    // Prefer a provided PNG at runtime if it exists (user can add chatbot-logo.png to src/assets)
-    try {
-      const pngUrl = new URL('../../assets/chatbot-logo.png', import.meta.url).href
-      fetch(pngUrl, { method: 'HEAD' }).then(res => {
-        if (res.ok) setLogoSrc(pngUrl)
-      }).catch(() => {})
-    } catch (e) {
-      // ignore
-    }
-  }, [])
+  // Use provided gmlogo PNG as chatbot logo (keeps bot branding consistent)
 
   useEffect(() => {
     if (listRef.current) {

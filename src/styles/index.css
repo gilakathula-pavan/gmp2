@@ -1,0 +1,20 @@
+/* Tailwind entry - import in main.jsx */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+	--grahmind-red:#EA4335;
+	--grahmind-orange:#FBBC05;
+	--grahmind-green:#34A853;
+	--grahmind-teal:#00A66F;
+	--grahmind-blue:#4285F4;
+	--grahmind-sky:#4EC3F7;
+	--grahmind-purple:#A142F4;
+	--grahmind-magenta:#C53DFF;
+}
+
+/* Utility helpers using CSS vars (optional) */
+.brand-bg { background-color: var(--grahmind-blue); }
+.brand-text { color: var(--grahmind-blue); }
+

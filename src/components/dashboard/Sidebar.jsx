@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { AuthContext } from '../../contexts/AuthContext'
-import gmpLogo from '../../assets/images/gmp.jpg'
+import gmpLogo from '../../assets/images/gmlogo-removebg-preview.png'
 
 const items = [
   { to: '/dashboard', label: 'Overview', icon: '🏠' },
